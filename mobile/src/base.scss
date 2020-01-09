@@ -1,0 +1,6 @@
+// 截字混合
+@mixin ellipsis() {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}

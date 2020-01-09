@@ -1,0 +1,28 @@
+接口说明
+请求路径    /data/lesson/home
+请求方式    GET
+文档类型    application/json
+文档编码    ...
+
+携带数据
+    query
+        type    分类信息
+    data(post请求)
+        page    页码
+
+返回数据
+    {
+        errno       错误类型    0表示成功
+        msg         如果有错误，表示错误信息
+        data<Array> 返回的数据
+            [
+                {
+                    _id         课程id
+                    img         课程图片
+                    title       课程标题
+                    sales       课程销量    <number>
+                    price       课程价格
+                    type        课程分类
+                }
+            ]
+    }

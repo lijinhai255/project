@@ -1,0 +1,83 @@
+// W = iw * n + (n - 1) * m
+// 1140 = iw * 5 + (5 - 1) * 20
+// iw = (1140 - (5 - 1) * 20) / 5
+// 溢出隐藏
+.ellipsis() {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.ickt-card {
+	width: 212px;
+	border-radius: 10px;
+	background-color: #fff;
+	overflow: hidden;
+	// 图片等比例缩放 240 / 135 = 212 / h => h = 135 * 212 / 240 
+	.img-container {
+		width: 212px;
+		height: 119.25px;
+		position: relative;
+		overflow: hidden;
+		img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 212px;
+			height: 119.25px;
+		}
+	}
+	.content {
+		position: relative;
+		padding: 5px 10px;
+		h3 {
+			.ellipsis();
+			font-size: 18px;
+		}
+		p {
+			font-size: 12px;
+			display: flex;
+			white-space: nowrap;
+			.sales {
+				flex: 1;
+			}
+			.price {
+				color: #f30;
+				margin-right: 2px
+			}
+		}
+		.layer {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-color: rgba(0, 0, 0, 0.5);
+			text-align: center;
+			padding-top: 20px;
+			opacity: 0;
+			.btn {
+				display: inline-block;
+			}
+			.btn-disabled {
+				background: #efefef;
+				color: #666;
+				cursor: not-allowed;
+			}
+		}
+	}
+	&:hover {
+		.content .layer {
+			opacity: 1;
+			transition: opacity 600ms;
+		}
+		.img-container img {
+			// width: 252px;
+			// height: 159.25px;
+			// top: -20px;
+			// left: -20px;
+			// 通过css3放大
+			transform: scale(1.2);
+			transition: all 600ms;
+		}
+	}
+}
